@@ -1,0 +1,15 @@
+version: '2'
+options:
+  verbose: true
+  unison_image: 'eugenmayer/unison'
+  cli_mode: 'auto'
+  compose-file-path: 'docker-compose.yml'
+  compose-dev-file-path: 'docker-compose-dev.yml'
+syncs:
+  fei-unison-sync:
+    src: '../www'
+    sync_prefer: 'default'
+    sync_userid: '33'
+    sync_strategy: 'unison'
+    sync_host_ip: '127.0.0.1' #host ip isn't properly inferred
+    sync_excludes: ['.gitignore', '.idea/*','.git/*', '*.coffee', '*.scss', '*.sass','*.log']
